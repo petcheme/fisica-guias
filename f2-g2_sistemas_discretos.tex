@@ -6,22 +6,25 @@
 \usepackage{babel}
     \addto\shorthandsspanish{\spanishdeactivate{~<>}}
     \decimalpoint
+\usepackage[style=iso]{datetime2}
+\usepackage{fancyhdr}
 \usepackage{float}
 \usepackage[T1]{fontenc}
 \usepackage[a4paper]{geometry}
     \geometry{verbose,tmargin=3cm,bmargin=2cm,lmargin=2.5cm,rmargin=2.5cm}
 \usepackage{graphicx}
 \usepackage[utf8]{inputenc}
+\usepackage{lastpage}
 \usepackage{mathptmx}
 \usepackage{units}
 
 % tipo de fuente 
 \usepackage{lmodern}
 
-\makeatletter
-
-\makeatother
-
+\pagestyle{fancy}
+\lfoot{\small DF, FCEyN, UBA}
+\cfoot{\tiny Actualizado el {\today} a las {\DTMcurrenttime}}
+\rfoot{\small Pág. {\thepage} de \pageref{LastPage}}
 
 \begin{document}
 
@@ -35,7 +38,7 @@
     \par\end{center}{\large \par}
     
     \begin{center}
-    \textsc{\large Guía 2: Sistemas acoplados discretos}
+    \textsc{\large Guía 2: Sistemas Acoplados Discretos}
     \par\end{center}{\large \par}
 
 % Comienzo 
@@ -64,12 +67,11 @@
         gravedad.
     \end{enumerate}
 
-
 % Ejercicio 2
 
     \item Considere el sistema de dos péndulos de igual longitud $l$ pero de
-    masas diferentes $m_\text{a}$ y $m_\text{b}$, acoplados mediante un resorte de
-    constante $k$. 
+    masas diferentes $m_\text{a}$ y $m_\text{b}$, acoplados mediante un resorte
+    de constante $k$. 
 
     \begin{figure}[H]
         \centering{}\includegraphics[clip,scale=0.3]{figs/ej1-7}
@@ -80,41 +82,19 @@
 
         \item Obtenga las frecuencias naturales del sistema y sus modos normales
         de oscilación. Interprete el significado físico de estos modos normales.
- 
-        \item Suponiendo que el acoplamiento es débil, es decir:
-        $k \ll \frac{g}{l} \frac{m_\text{a}m_\text{b}}{m_\text{a}+m_\text{b}}$,
-        y que las condiciones
-        iniciales son $\dot{\Psi}_\text{a}(0)=0$, $\dot{\Psi}_\text{b}(0)=0$, 
-        $\Psi_\text{a}(0)=0$, y $\Psi_\text{b}(0)=1$; obtenga el movimiento de
-        cada masa y grafíquelo en función del tiempo.
-
-        \item Calcule los valores medios, en un ciclo rápido, de $T_\text{a}$ y
-        $T_\text{b}$, donde $T$ indica energía cinética. Grafique
-        $\left\langle T_\text{a}\right\rangle$ y
-        $\left\langle T_\text{b}\right\rangle$, y analice las diferencias en
-        el gráfico como función de las diferencias entre las masas
-        ($m_\text{a}=m_\text{b}$ y $m_\text{a}$ muy diferente de $m_\text{b}$).
-        Calcule el valor medio de la energía de interacción entre las dos
-        partículas.
 
     \end{enumerate}
-
 
 % Ejercicio 3
 
     \item Considere el sistema de la figura. Las masas están apoyadas en una 
     mesa sin rozamiento, sujetas a las paredes por resortes de constante $k$ y
-    unidas por otro resorte de constante $k'$. 
+    unidas por otro resorte de constante $k'$. Obtenga las frecuencias y los
+    modos transversales del sistema. 
 
     \begin{figure}[H]
         \centering{}\includegraphics[clip,scale=0.25]{figs/ej1-8}
     \end{figure}
-
-    \begin{enumerate}
-        \item Obtenga las frecuencias y los modos transversales del sistema. 
-        \item ¿Bajo qué condiciones espera observar batidos? ¿Qué son los
-        batidos?
-    \end{enumerate}
 
 % Ejercicio 4
 
@@ -141,7 +121,8 @@
 % Ejercicio 5
 
     \item Considere el sistema de la figura, en la que los resortes verticales
-    tienen longitud natural $l_{0,1}$ y constante $k_{1}$, y los horizontales tienen longitud natural $l_{0,2}=0$ (\textit{slinkies}) y constante $k_{2}$.
+    tienen longitud natural $l_{0,1}$ y constante $k_{1}$, y los horizontales
+    tienen longitud natural $l_{0,2}=0$ (\textit{slinkies}) y constante $k_{2}$.
 
     \begin{figure}[H]
         \centering{}\includegraphics[clip,scale=0.25]{figs/ej1-10}
@@ -163,9 +144,77 @@
     \end{description}
 
 
-    \section*{Sistemas con muchos grados de libertad}
+    \section*{Acoplamiento débil, pulsaciones y forzado}
 
 % Ejercicio 6
+
+    \item Considere el problema (visto en la sección anterior) de dos péndulos
+    de igual longitud $l$ y de diferentes masas, $m_\text{a}$ y $m_\text{b}$,
+    acoplados por un resorte de constante elástica $k$:
+
+    \begin{enumerate}
+        
+        \item Suponiendo que el acoplamiento es débil (es decir:
+        $k \ll \frac{g}{l} \frac{m_\text{a}m_\text{b}}{m_\text{a}+m_\text{b}}$)
+        y que las condiciones
+        iniciales son $\dot{\Psi}_\text{a}(0)=0$, $\dot{\Psi}_\text{b}(0)=0$, 
+        $\Psi_\text{a}(0)=0$, y $\Psi_\text{b}(0)=1$; obtenga el movimiento de
+        cada masa y grafíquelo en función del tiempo.
+
+        \item Calcule los valores medios, en un ciclo rápido, de $T_\text{a}$ y
+        $T_\text{b}$, donde $T$ indica energía cinética. Grafique
+        $\left\langle T_\text{a}\right\rangle$ y
+        $\left\langle T_\text{b}\right\rangle$, y analice las diferencias en
+        el gráfico como función de las diferencias entre las masas
+        ($m_\text{a}=m_\text{b}$ y $m_\text{a}$ muy diferente de $m_\text{b}$).
+        Calcule el valor medio de la energía de interacción entre las dos
+        partículas.    
+    \end{enumerate}    
+
+% Ejercicio 7
+
+    \item Considere el sistema del problema 3 de la sección anterior, formado
+    por dos masas apoyadas en una mesa sin rozamiento, sujetas a las paredes por
+    resortes de constante $k$ y unidas por otro resorte de constante $k'$. ¿Bajo
+    qué condiciones espera observar batidos? ¿Qué son los batidos?
+
+% Ejercicio 8
+
+    \item Considere el sistema de dos péndulos acoplados, tal que uno de ellos
+    es impulsado por una fuerza $F=F_{0}\cos(\Omega t)$. Desprecie el
+    amortiguamiento. Muestre que:
+    \[
+    \Psi_\text{a}\approx\frac{F_{0}}{2M}\cos(\Omega t)\left[\frac{1}{\omega_{1}^{2}-\Omega^{2}}+\frac{1}{\omega_{2}^{2}-\Omega^{2}}\right];
+    \]
+    \[
+    \Psi_\text{b}\approx\frac{F_{0}}{2M}\cos(\Omega t)\left[\frac{1}{\omega_{1}^{2}-\Omega^{2}}-\frac{1}{\omega_{2}^{2}-\Omega^{2}}\right];
+    \]
+    \[
+    \frac{\Psi_\text{b}}{\Psi_\text{a}}\approx\frac{\omega_{2}^{2}-\omega_{1}^{2}}{\omega_{2}^{2}+\omega_{1}^{2}-2\Omega^{2}};
+    \]
+    donde $\omega_{1}$ es la menor de las frecuencias modales, $\omega_{2}$
+    es la mayor y $\Omega$ es la frecuencia de excitación.
+
+% Ejercicio 9
+
+    \item Considere nuevamente el problema 3 de la sección anterior, pero en
+    este caso considere las oscilaciones longitudinales.
+    
+    \begin{enumerate}
+        \item Halle la solución estacionaria para el caso forzado en el cual se
+        aplica una fuerza oscilante $F(t) = F_0 \cos(\omega t)$ sobre la masa de
+        la izquierda. ¿Qué resonancias espera ver si realiza un barrido de
+        frecuencias?
+        
+        \item Repita el ítem anterior considerando además una fuerza de
+        disipación proporcional a la velocidad.
+        
+        \item Repita el problema para las oscilaciones transversales del sistema.
+    \end{enumerate}
+
+    \section*{Sistemas con muchos grados de libertad}
+
+% Ejercicio 10
 
     \item Considere el sistema de $N$ masas mostrado en la figura. 
 
@@ -199,7 +248,7 @@
         caso en que $N=3$.
     \end{enumerate}
 
-% Ejercicio 7
+% Ejercicio 11
 
     \item Considere el sistema de péndulos acoplados de la figura. 
     
@@ -222,24 +271,7 @@
         extremos está libre.
     \end{enumerate}
 
-% Ejercicio 8
-
-    \item Considere el sistema de dos péndulos acoplados, tal que uno de ellos
-    es impulsado por una fuerza $F=F_{0}\cos(\Omega t)$. Desprecie el
-    amortiguamiento. Muestre que:
-    \[
-    \Psi_\text{a}\approx\frac{F_{0}}{2M}\cos(\Omega t)\left[\frac{1}{\omega_{1}^{2}-\Omega^{2}}+\frac{1}{\omega_{2}^{2}-\Omega^{2}}\right];
-    \]
-    \[
-    \Psi_\text{b}\approx\frac{F_{0}}{2M}\cos(\Omega t)\left[\frac{1}{\omega_{1}^{2}-\Omega^{2}}-\frac{1}{\omega_{2}^{2}-\Omega^{2}}\right];
-    \]
-    \[
-    \frac{\Psi_\text{b}}{\Psi_\text{a}}\approx\frac{\omega_{2}^{2}-\omega_{1}^{2}}{\omega_{2}^{2}+\omega_{1}^{2}-2\Omega^{2}};
-    \]
-    donde $\omega_{1}$ es la menor de las frecuencias modales, $\omega_{2}$
-    es la mayor y $\Omega$ es la frecuencia de excitación.
-
-% Ejercicio 9
+% Ejercicio 12
 
     \item Considere el sistema de tres péndulos acoplados que se muestra en la
     figura.
@@ -257,6 +289,10 @@
         masa y encuentre la solución estacionaria para cada modo. ¿Cuáles son
         las frecuencias de resonancia?
     \end{enumerate}
+
+    \textbf{Sugerencia:} Use los resultados obtenidos para un sistema de $N$
+    péndulos acoplados y particularice la solución para $N=3$. ¿Cómo son las
+    condiciones de contorno de este sistema?
 
 \end{enumerate}
 
