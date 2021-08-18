@@ -6,22 +6,25 @@
 \usepackage{babel}
     \addto\shorthandsspanish{\spanishdeactivate{~<>}}
     \decimalpoint
+\usepackage[style=iso]{datetime2}
+\usepackage{fancyhdr}
 \usepackage{float}
 \usepackage[T1]{fontenc}
 \usepackage[a4paper]{geometry}
     \geometry{verbose,tmargin=3cm,bmargin=2cm,lmargin=2.5cm,rmargin=2.5cm}
 \usepackage{graphicx}
 \usepackage[utf8]{inputenc}
+\usepackage{lastpage}
 \usepackage{mathptmx}
 \usepackage{units}
 
 % tipo de fuente 
 \usepackage{lmodern}
 
-\makeatletter
-
-\makeatother
-
+\pagestyle{fancy}
+\lfoot{\small DF, FCEyN, UBA}
+\cfoot{\tiny Actualizado el {\today} a las {\DTMcurrenttime}}
+\rfoot{\small Pág. {\thepage} de \pageref{LastPage}}
 
 \begin{document}
 
@@ -35,7 +38,7 @@
     \par\end{center}{\large \par}
     
     \begin{center}
-    \textsc{\large Guía 3: Sistemas continuos}
+    \textsc{\large Guía 3: Sistemas Continuos}
     \par\end{center}{\large \par}
 
 % Comienzo 
