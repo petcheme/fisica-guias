@@ -1,0 +1,213 @@
+\documentclass[11pt,spanish]{article}
+
+% Paquetes
+\usepackage{amstext}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{babel}
+    \addto\shorthandsspanish{\spanishdeactivate{~<>}}
+    \decimalpoint
+\usepackage[style=iso]{datetime2}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper]{geometry}
+    \geometry{verbose,tmargin=3cm,bmargin=2cm,lmargin=2.5cm,rmargin=2.5cm}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage{lastpage}
+\usepackage{mathptmx}
+\usepackage{tasks}
+\usepackage{units}
+\usepackage{siunitx}
+
+% dibujos 
+
+\usepackage{tikz}
+\usepackage{tikz-dimline}
+\usetikzlibrary{calc}
+% \usetikzlibrary{math}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{snakes}
+\usetikzlibrary{decorations}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{patterns}
+
+% tipo de fuente 
+\usepackage{lmodern}
+
+\pagestyle{fancy}
+\lfoot{\small DF, FCEyN, UBA}
+\cfoot{\tiny Actualizado el {\today} a las {\DTMcurrenttime}}
+\rfoot{\small Pág. {\thepage} de \pageref{LastPage}}
+
+\begin{document}
+
+% Título
+    \begin{center}
+    \textsc{\large Física 2 (Física) - Cátedra Diana Skigin}
+    \par\end{center}{\large \par}
+    
+    \begin{center}
+    \textsc{\large Segundo Cuatrimestre de 2021}
+    \par\end{center}{\large \par}
+    
+    \begin{center}
+    \textsc{\large Guía 6: Paquetes de Ondas}
+    \par\end{center}{\large \par}
+
+% Comienzo 
+\begin{enumerate}
+
+% \section*{a}
+
+% Ejercicio 1
+
+    \item En lo que sigue, encuentre con cuál de estos métodos se determina
+    la velocidad de fase y con cuál la de grupo.
+
+    \begin{enumerate}
+        \item Medir la velocidad del sonido en el aire, golpeando las manos y
+        determinando el tiempo que transcurre entre el aplauso y el eco de un
+        reflector ubicado a una distancia conocida.
+
+        \item Medir la longitud de un tubo que resuena a una frecuencia conocida
+        (y corregir por efectos de borde).
+
+        \item Determinar la velocidad de la luz midiendo el tiempo que tarda un
+        haz colimado en recorrer una distancia conocida.
+
+        \item Encontrar la longitud de una cavidad resonante que oscila en un
+        modo conocido a una frecuencia conocida.
+    \end{enumerate}
+
+% Ejercicio 2
+
+    \item Demuestre que la velocidad de grupo $v_\text{g}$ y la velocidad de fase
+    $v_\text{f}$ están relacionadas por:
+    \[
+    v_\text{g}=v_\text{f}-\lambda\frac{dv_\text{f}}{d\lambda}
+    \]
+    ¿Cómo es $\frac{dv_\text{f}}{d\lambda}$ en un medio no dispersivo? En
+    ese caso, ¿cómo se relacionan la velocidad de grupo y la de fase?
+
+% Ejercicio 3
+
+    \item Se quiere investigar la relación entre el ancho de un paquete y el
+    desfasaje de las frecuencias que lo componen.
+
+    \begin{enumerate}
+
+        \item Tome el siguiente pulso con un espectro gaussiano de ancho $\Delta k$
+        centrado en $k_{0}$ (note que las frecuencias están en fase):
+        \[
+        F(k)=A\exp\left[-\frac{(k-k_{0})^{2}}{4\Delta k^{2}}\right].
+        \]
+        Calcule $f(x)$ y vea que tiene una envolvente gaussiana que modula
+        una portadora de frecuencia $k_{0}$. Note que el pulso está centrado
+        en $x=0$ y que se cumple la relación $\Delta x\Delta k=1/2$ (el
+        paquete gaussiano es el de mínima incerteza).
+
+        \item Ahora desfase las distintas frecuencias en forma lineal, tal que:
+        \[
+        F(k)=A\exp\left[-\frac{(k-k_{0})^{2}}{4\Delta k^{2}}\right]\exp\left[i\alpha(k-k_{0})\right].
+        \]
+        Calcule $f(x)$ y vea que es el mismo pulso que en la parte (a), pero
+        desplazado en $\alpha$ hacia la derecha (una fase lineal sólo corre
+        la función).
+
+        \item Ahora agregue una fase cuadrática, es decir:
+        \[
+        F(k)=A\exp\left[-\frac{(k-k_{0})^{2}}{4\Delta k^{2}}\right]\exp\left[i\beta(k-k_{0})^{2}\right].
+        \]
+        Calcule $f(x)$ y vea que es un pulso gaussiano centrado en $x=0$
+        pero con un ancho $\Delta x$ que cumple:
+        \[
+        \Delta x\Delta k=\frac{1}{2}\sqrt{1+16\beta^{2}\Delta k^{4}}.
+        \]
+        ¿Es cierto que si se quiere disminuir el ancho de un paquete siempre
+        se debe aumentar $\Delta k$? Derive $\Delta x$ con respecto a $\Delta k$
+        de la expresión anterior y analice lo pedido.
+    \end{enumerate}
+
+    \begin{description}
+        \item [{Ayuda:}] $\int_{-\infty}^{+\infty}\exp\left[(x+a)^{2}\right]dx=\sqrt{\pi}$.
+    \end{description}
+
+% Ejercicio 4
+
+    \item Si $\Psi(\omega)$ corresponde a un espectro de frecuencias cuadrado,
+    o sea $\Psi(\omega)=1/\Delta\omega$ para $\omega$ comprendida en
+    el intervalo de ancho $\Delta\omega$ alrededor de $\omega_{0}$,
+    y cero en otra parte; vea que $\phi(t)$ está dada por: 
+    \[
+    \phi(t)=\frac{1}{\sqrt{\pi}}\left[\frac{\sin(t\Delta\omega/2)}{t\Delta\omega/2}\right]e^{i\omega_{0}t}
+    \]
+
+    \begin{enumerate}
+        \item Grafique $\Psi(\omega)$ y $\left|\phi(t)\right|$.
+
+        \item Sea $T$ un tiempo más prolongado que la duración de cualquier experimento
+        que pueda idear. Muestre que si $\Delta\omega$ es suficientemente
+        pequeño como para que $\Delta\omega T\ll1$, entonces durante un tiempo
+        menor que $T$, $\phi(t)$ es una función armónica de amplitud y fase
+        casi constante.
+    \end{enumerate}
+
+
+% Ejercicio 5
+
+    \item Sea $\phi(t)$ una función real.
+
+    \begin{enumerate}
+        \item Muestre que su transformada de Fourier $\Psi(\omega)$ cumple $\Psi(\omega)=\Psi(-\omega)$.
+        Use esto para escribir a $\phi(t)$ como superposición de senos y
+        cosenos.
+        \item Muestre que la transformada de Fourier $\mathcal{F}$ es lineal, esto
+        quiere decir que
+        \[
+        \mathcal{F}(af+bg)=a\mathcal{F}(f)+b\mathcal{F}(g)
+        \]
+        donde $f$ y $g$ son funciones de $x$ y $a$ y $b$ son constantes.
+        \item Tomemos una pulsación que se repite $N$ veces:
+
+        \begin{figure}[H]
+            \centering{}\includegraphics[clip,scale=0.25]{figs/ej2-18}
+        \end{figure}
+
+        Vea que la transformada de Fourier de un único pulso situado entre
+        $(n\tau,n\tau+\Delta t)$ es igual a la transformada del pulso $(0,\Delta t)$
+        multiplicado por la fase $e^{in\phi}$. Calcule entonces la transformada
+        de la pulsación cuadrada que se repite en un tiempo largo $T_{largo}=N\tau$.
+
+        \item Muestre que para un valor finito de $T_{largo}$ el análisis de Fourier
+        de esta pulsación cuadrada repetida casi periódicamente, consiste
+        en una superposición de armónicos casi discretos de la frecuencia
+        fundamental $\nu_{1}=1/T_{1}$, siendo realmente cada armónico un
+        continuo de frecuencias que se extiende sobre una banda de ancho $\delta\nu\approx1/T_{largo}$.
+        Las armónicas más importantes caen entre 0 y $\Delta\nu=1/\Delta t$.
+
+        \item ¿Por qué vale $\Delta t\Delta\nu\approx1$ si, en principio, podría
+        valer $\Delta t\Delta\nu\gg1$? ¿La misma pregunta es aplicable a
+        $\delta\nu$ y $T_{largo}$?
+    \end{enumerate}
+    
+% Ejercicio 6
+
+    \item Se tiene un pulso de ancho $\Delta k$ centrado en $k_{0}$ tal que
+    la siguiente es una buena aproximación para la relación de dispersión:
+    \[
+    \omega(k)=\omega_{0}(k_{0})+\omega'(k_{0})(k-k_{0})+\frac{1}{2}\omega''(k_{0})(k-k_{0})^{2}
+    \]
+    Si en $t=0$ el pulso se propaga hacia $x<0$, y se escribe:
+    \[
+    \Psi(x,0)=A\int_{-\infty}^{+\infty}\exp\left[-\frac{(k-k_{0})^{2}}{4\Delta k^{2}}\right]\exp\left(ikx\right)dk+c.c.
+    \]
+    Calcule $\Psi(x,t)$. Vea cuál es la posición y el ancho del paquete
+    como función del tiempo. ¿Es cierto que al viajar por un medio dispersivo
+    cualquier paquete se ensancha?
+    
+\end{enumerate}
+
+\end{document}
