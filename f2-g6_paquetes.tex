@@ -60,12 +60,12 @@
 % Comienzo 
 \begin{enumerate}
 
-% \section*{a}
+\section*{Velocidad de grupo y de fase}
 
 % Ejercicio 1
 
-    \item En lo que sigue, encuentre con cuál de estos métodos se determina
-    la velocidad de fase y con cuál la de grupo.
+    \item Discuta cuál de estos métodos permite determinar
+    la velocidad de fase y cuál la de grupo:
 
     \begin{enumerate}
         \item Medir la velocidad del sonido en el aire, golpeando las manos y
@@ -84,6 +84,23 @@
 
 % Ejercicio 2
 
+    \item Obtenga la velocidad de fase y de grupo para los siguientes casos.
+    Compárelas y discuta para cuales ambas son similares.
+    
+    \begin{enumerate}
+        \item Ecuación de ondas clásica.
+        \item Ecuación de Klein-Gordon, considerando las siguientes situaciones:
+        \begin{enumerate}
+            \item $\omega_0 = 0$, con $c$ y $k_0$ arbitrarios.
+
+            \item $\omega_0 = \SI{1}{\per\second}$ y $c=\SI{1}{\meter\per\second}$,
+            con $k_0$ tomando los valores: $\SI{1}{\per\meter}$,
+            $\SI{3}{\per\meter}$, y $\SI{10}{\per\meter}$.
+        \end{enumerate}
+    \end{enumerate}
+
+% Ejercicio 3
+
     \item Demuestre que la velocidad de grupo $v_\text{g}$ y la velocidad de fase
     $v_\text{f}$ están relacionadas por:
     \[
@@ -92,7 +109,39 @@
     ¿Cómo es $\frac{dv_\text{f}}{d\lambda}$ en un medio no dispersivo? En
     ese caso, ¿cómo se relacionan la velocidad de grupo y la de fase?
 
-% Ejercicio 3
+
+\section*{Paquetes Gaussianos}
+
+% Ejercicio 4
+
+    \item \textbf{Función Gaussiana:} Considere la siguiente función de una
+    coordenada arbitraria $z$:
+    \[
+    F(z)=A\exp\left[-\frac{(z-\mu)^{2}}{4\Delta ^{2}}\right],
+    \]
+    conocida como función de Gauss (\textit{aka} campana de Gauss, función
+    normal, etc.), cuyos parámetros $A$, $\mu$ y $\Delta$ son conocidos.
+    
+    \begin{enumerate}
+        \item Muestre analítica o gráficamente que esta función:
+        \begin{itemize}
+            \item es definida positiva.
+            \item tiene un único máximo en $z = \mu$.
+            \item tiende a $0$ para $z \to \pm \infty$.
+        \end{itemize}
+ 
+        \item Determine el desplazamiento en $z$ respecto a la posición del
+        máximo, necesario para que la altura de la función se reduzca a la
+        mitad. Es decir, obtenga $\Delta z$ tal que:
+        $$F(z \pm \Delta z)=\nicefrac{1}{2} F(\mu)$$
+        Utilice este resultado para definir el ancho de la campana. ¿Qué
+        parámetro de la función determina dicho ancho?
+        
+        \item ¿A qué altura de la función corresponde el ancho definido por
+        $2 \Delta$?
+    \end{enumerate}
+
+% Ejercicio 5
 
     \item Se quiere investigar la relación entre el ancho de un paquete y el
     desfasaje de las frecuencias que lo componen.
@@ -106,8 +155,8 @@
         \]
         Calcule $f(x)$ y vea que tiene una envolvente gaussiana que modula
         una portadora de frecuencia $k_{0}$. Note que el pulso está centrado
-        en $x=0$ y que se cumple la relación $\Delta x\Delta k=1/2$ (el
-        paquete gaussiano es el de mínima incerteza).
+        en $x=0$ y que se cumple la relación $\Delta x\Delta k=\nicefrac{1}{2}$
+        (el paquete Gaussiano es el de mínima incerteza).
 
         \item Ahora desfase las distintas frecuencias en forma lineal, tal que:
         \[
@@ -126,16 +175,72 @@
         \[
         \Delta x\Delta k=\frac{1}{2}\sqrt{1+16\beta^{2}\Delta k^{4}}.
         \]
-        ¿Es cierto que si se quiere disminuir el ancho de un paquete siempre
-        se debe aumentar $\Delta k$? Derive $\Delta x$ con respecto a $\Delta k$
-        de la expresión anterior y analice lo pedido.
+        
+        Verifique que esta relación cumple la relación de incerteza general
+        $\Delta x \Delta k \geq \nicefrac{1}{2}$, y luego determine el valor de
+        $\beta$ tal que se cumpla la relación de mínima incerteza
+        $\Delta x \Delta k = \nicefrac{1}{2}$.
+        
+        \item A partir del resultado anterior, discuta si es cierto que, si se
+        quiere disminuir el ancho de un paquete ($\Delta x$), \textit{siempre}
+        se debe aumentar el ancho de su espectro ($\Delta k$). ¿Contradice esto
+        a la relación de incerteza mínima?
+
+        \textbf{Sugerencia:} Puede ser útil obtener $\Delta x$ como función de
+        $\Delta k$, y luego graficar o derivar la primera en función de la
+        segunda.
+
     \end{enumerate}
 
     \begin{description}
         \item [{Ayuda:}] $\int_{-\infty}^{+\infty}\exp\left[(x+a)^{2}\right]dx=\sqrt{\pi}$.
     \end{description}
 
-% Ejercicio 4
+% Ejercicio 6
+
+    \item Repita el ejercicio anterior considerando que el espectro $F(k)$
+    corresponde a un pulso que se propaga en un medio arbitrario en $t=0$.
+    Resuelva analíticamente a partir de la linealización de la relación de
+    dispersión y halle $\Psi(x,t)$ en cada caso. ¿Qué supuestos debe verificar
+    el espectro para que el desarrollo sea lo más exacto posible?
+
+% Ejercicio 7
+
+    \item Se tiene un pulso de ancho $\Delta k$ centrado en $k_{0}$ tal que
+    la siguiente es una buena aproximación para la relación de dispersión:
+    \[
+    \omega(k)=\omega_{0}(k_{0})+\omega'(k_{0})(k-k_{0})+\frac{1}{2}\omega''(k_{0})(k-k_{0})^{2}
+    \]
+    Si en $t=0$ el pulso se propaga hacia $x<0$, y se escribe:
+    \[
+    \Psi(x,0)=A\int_{-\infty}^{+\infty}\exp\left[-\frac{(k-k_{0})^{2}}{4\Delta k^{2}}\right]\exp\left(ikx\right)dk+ \text{c.c.}
+    \]
+    Calcule $\Psi(x,t)$. Vea cuál es la posición y el ancho del paquete
+    como función del tiempo. ¿Es cierto que al viajar por un medio dispersivo
+    cualquier paquete se ensancha?
+
+
+\section*{Propiedades de la transformada de Fourier}    
+    
+% Ejercicio 8    
+    
+    \item Sea $\phi(t)$ una función real. Muestre que su transformada de Fourier
+    $\Psi(\omega)$ cumple $\Psi(\omega)=\Psi(-\omega)$. Use esto para escribir a
+    $\phi(t)$ como superposición de senos y cosenos.
+
+% Ejercicio 9        
+
+    \item Muestre que la transformada de Fourier $\mathcal{F}$ es lineal, esto
+    quiere decir que
+    \[
+    \mathcal{F}(af+bg)=a\mathcal{F}(f)+b\mathcal{F}(g)
+    \]
+    donde $f$ y $g$ son funciones de $x$, y donde $a$ y $b$ son constantes.
+
+
+\section*{Paquetes cuadrados}
+
+% Ejercicio 10
 
     \item Si $\Psi(\omega)$ corresponde a un espectro de frecuencias cuadrado,
     o sea $\Psi(\omega)=1/\Delta\omega$ para $\omega$ comprendida en
@@ -148,84 +253,64 @@
     \begin{enumerate}
         \item Grafique $\Psi(\omega)$ y $\left|\phi(t)\right|$.
 
-        \item Sea $T$ un tiempo más prolongado que la duración de cualquier experimento
-        que pueda idear. Muestre que si $\Delta\omega$ es suficientemente
-        pequeño como para que $\Delta\omega T\ll1$, entonces durante un tiempo
-        menor que $T$, $\phi(t)$ es una función armónica de amplitud y fase
-        casi constante.
+        \item Sea $T$ un tiempo más prolongado que la duración de cualquier
+        experimento que pueda idear. Muestre que si $\Delta\omega$ es
+        suficientemente pequeño como para que $\Delta\omega T\ll1$, entonces
+        durante un tiempo menor que $T$, $\phi(t)$ es una función armónica de
+        amplitud y fase casi constante.
     \end{enumerate}
 
+% Ejercicio 11
 
-% Ejercicio 5
+    \item Considere una pulsación que se repite $N$ veces en el tiempo, dando
+    lugar a la siguiente señal $\phi$:
 
-    \item Sea $\phi(t)$ una función real.
+    \begin{figure}[H]
+        \centering{}\includegraphics[clip,scale=0.25]{figs/ej2-18}
+    \end{figure}
 
     \begin{enumerate}
-        \item Muestre que su transformada de Fourier $\Psi(\omega)$ cumple $\Psi(\omega)=\Psi(-\omega)$.
-        Use esto para escribir a $\phi(t)$ como superposición de senos y
-        cosenos.
-        \item Muestre que la transformada de Fourier $\mathcal{F}$ es lineal, esto
-        quiere decir que
-        \[
-        \mathcal{F}(af+bg)=a\mathcal{F}(f)+b\mathcal{F}(g)
-        \]
-        donde $f$ y $g$ son funciones de $x$ y $a$ y $b$ son constantes.
-        \item Tomemos una pulsación que se repite $N$ veces:
+        
+        \item Vea que la transformada de Fourier de un único pulso situado en el
+        intervalo $(n\tau,n\tau+\Delta t)$ es igual a la transformada del pulso
+        situado en $(0,\Delta t)$, multiplicado por la fase $e^{in\phi}$.
+        Calcule entonces la transformada de la pulsación cuadrada que se repite
+        en un tiempo largo $T_\text{largo}=N\tau$.
 
-        \begin{figure}[H]
-            \centering{}\includegraphics[clip,scale=0.25]{figs/ej2-18}
-        \end{figure}
-
-        Vea que la transformada de Fourier de un único pulso situado entre
-        $(n\tau,n\tau+\Delta t)$ es igual a la transformada del pulso $(0,\Delta t)$
-        multiplicado por la fase $e^{in\phi}$. Calcule entonces la transformada
-        de la pulsación cuadrada que se repite en un tiempo largo $T_{largo}=N\tau$.
-
-        \item Muestre que para un valor finito de $T_{largo}$ el análisis de Fourier
-        de esta pulsación cuadrada repetida casi periódicamente, consiste
-        en una superposición de armónicos casi discretos de la frecuencia
-        fundamental $\nu_{1}=1/T_{1}$, siendo realmente cada armónico un
-        continuo de frecuencias que se extiende sobre una banda de ancho $\delta\nu\approx1/T_{largo}$.
-        Las armónicas más importantes caen entre 0 y $\Delta\nu=1/\Delta t$.
+        \item Muestre que, para un valor finito de $T_\text{largo}$, el análisis
+        de Fourier de esta pulsación cuadrada repetida casi periódicamente,
+        consiste en una superposición de armónicos casi discretos de la
+        frecuencia fundamental $\nu_{1}=1/T_{1}$, siendo realmente cada armónico
+        un continuo de frecuencias que se extiende sobre una banda de ancho
+        $\delta\nu\approx1/T_\text{largo}$. Los componentes armónicos más
+        importantes caen entre 0 y $\Delta\nu=1/\Delta t$.
 
         \item ¿Por qué vale $\Delta t\Delta\nu\approx1$ si, en principio, podría
         valer $\Delta t\Delta\nu\gg1$? ¿La misma pregunta es aplicable a
-        $\delta\nu$ y $T_{largo}$?
+        $\delta\nu$ y $T_\text{largo}$?
     \end{enumerate}
-    
-% Ejercicio 6
 
-    \item Se tiene un pulso de ancho $\Delta k$ centrado en $k_{0}$ tal que
-    la siguiente es una buena aproximación para la relación de dispersión:
-    \[
-    \omega(k)=\omega_{0}(k_{0})+\omega'(k_{0})(k-k_{0})+\frac{1}{2}\omega''(k_{0})(k-k_{0})^{2}
-    \]
-    Si en $t=0$ el pulso se propaga hacia $x<0$, y se escribe:
-    \[
-    \Psi(x,0)=A\int_{-\infty}^{+\infty}\exp\left[-\frac{(k-k_{0})^{2}}{4\Delta k^{2}}\right]\exp\left(ikx\right)dk+c.c.
-    \]
-    Calcule $\Psi(x,t)$. Vea cuál es la posición y el ancho del paquete
-    como función del tiempo. ¿Es cierto que al viajar por un medio dispersivo
-    cualquier paquete se ensancha?
-    
 
-% Ejercicio 7
+\section*{Propagación de paquetes en interfaces}
+
+% Ejercicio 12
 
 	\item Se tienen dos cuerdas semi--infinitas de distinta densidad lineal
-	de masa, $\rho_{1}$ y $\rho_{2}$, unidas en un punto y sometidas
-	a una tensión $T$. Sobre la primera se propaga hacia la derecha una
-	perturbación de la forma indicada en la figura. Se conocen $\rho_{1}$,
-	$\rho_{2}$, $T$, $L$ y $h$. También se considera que los medios
-	son no dispersivos.
+	de masa, $\mu_{1}$ y $\mu_{2}$, unidas en un punto y sometidas
+	a una tensión $T_0$. Sobre la primera, se propaga hacia la derecha una
+	perturbación de la forma indicada en la figura, a velocidad $v$. Se conocen
+    $\mu_{1}$, $\mu_{2}$, $T_0$, $L$ y $h$.
 
 	\begin{figure}[H]
 		\centering{}\includegraphics[clip,scale=0.25]{figs/ej2-20}
 	\end{figure}
 
 	\begin{enumerate}
-		\item Hallar el desplazamiento $y(x,t)$.
-		\item Explique cualitativamente como cambian estos resultados si el medio
-		es dispersivo. 
+		\item Hallar el desplazamiento $\Psi(x,t)$ considerando que los medios
+    	son no dispersivos.
+
+		\item Explique cualitativamente cómo cambian estos resultados si el
+        segundo medio es dispersivo.
 	\end{enumerate}
     
 \end{enumerate}
