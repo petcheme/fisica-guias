@@ -214,7 +214,7 @@
     donde $\omega' = \frac{d \omega}{dk}$ y $\omega'' = \frac{d^2 \omega}{dk^2}$.
     Si en $t=0$ el pulso se propaga hacia $x<0$, y se escribe:
     \[
-    \psi(x,0)=A\int_{-\infty}^{+\infty}\exp\left[-\frac{(k-k_{0})^{2}}{4\Delta k^{2}}\right]\exp\left(ikx\right)dk+ \text{c.c.},
+    \psi(x,0)=\mathfrak{Re}\left[ A\int_{-\infty}^{+\infty}\exp\left[-\frac{(k-k_{0})^{2}}{4\Delta k^{2}}\right]\exp\left(ikx\right)dk\right],
     \]
     calcule $\psi(x,t)$. Obtenga la posición y el ancho del paquete
     como función del tiempo. ¿Es cierto que cualquier paquete se ensancha al
@@ -227,8 +227,8 @@
     
     \item Sea $f(t)$ una función real del tiempo. Muestre que su transformada de
     Fourier $\mathcal{F}[f]$ es una función de la frecuencia angular
-    $\hat{f}(\omega)$  que cumple $\hat{f}(\omega)=\hat{f}(-\omega)$. Use esto
-    para escribir a $f(t)$ como superposición de senos y cosenos.
+    $\hat{f}(\omega)$ que cumple $\overline{\hat{f}(\omega)}=\hat{f}(-\omega)$.
+    Use esto para escribir a $f(t)$ como superposición de senos y cosenos.
 
 % Ejercicio 9        
 
@@ -267,7 +267,9 @@
         experimento que pueda idear. Muestre que si $\Delta\omega$ es
         suficientemente pequeño como para que $\Delta\omega T\ll1$, entonces
         durante un tiempo menor que $T$, $\phi(t)$ es una función armónica de
-        amplitud y fase prácticamente constantes. Elija valores numéricos razonables para $T$ y $\Delta \omega$, y grafique el espectro correspondiente.
+        amplitud y fase prácticamente constantes. Elija valores numéricos
+        razonables para $T$ y $\Delta \omega$, y grafique el espectro
+        correspondiente.
     \end{enumerate}
 
 
@@ -298,9 +300,16 @@
         \item Obtenga $\hat{\phi}_0(\omega)$ y a partir de la misma obtenga
         $\hat{\phi}(\omega)$.
         
+        \item Grafique el espectro de amplitudes $|\hat{\phi}(\omega)|$ o bien
+        de energías $|\hat{\phi}(\omega)|^2$.
+        
+        \textbf{Ayuda:} Puede resultarle útil la siguiente identidad para series geométricas: 
+        $$\sum_{n=0}^{N-1}\mathrm{e}^{-2i\alpha n}=\frac{\mathrm{e}^{-2i\alpha N}-1}{\mathrm{e}^{-2i\alpha}-1}=\mathrm{e}^{-i\alpha(N-1)}\frac{\sin(\alpha N)}{\sin(\alpha)}$$        
+        con $\alpha = \pi \nu \tau$.
+        
         \item Considere la duración total de la señal $T_\text{tot}=N\tau$.
         Verifique que, para un valor finito de $T_\text{tot}$, el espectro
-        $\hat{\phi}(\omega)$ está formado por una superposición de armónicos
+        está formado por una superposición de armónicos
         casi discretos de la frecuencia fundamental $\nu_{1}=\tau^{-1}$, siendo
         realmente cada armónico un continuo de frecuencias que se extiende sobre
         una banda de ancho $\Delta\nu\approx T_\text{tot}^{-1}$. Verifique
@@ -311,6 +320,7 @@
         \item ¿Por qué vale $\nu_\text{máx} \Delta t \approx1$ si, en principio,
         podría valer $\nu_\text{máx} \Delta t \gg 1$? ¿La misma pregunta es
         aplicable a $\Delta\nu$ y $T_\text{tot}$?
+        
     \end{enumerate}
 
 
